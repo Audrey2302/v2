@@ -1,41 +1,83 @@
 document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("year");
   const seasonBtns = document.querySelectorAll(".season-btn");
+  const snowContainer = document.querySelector(".snowflakes");
+  const root = document.documentElement;
 
   /* === 1. Afficher l'année dans le footer === */
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* === 2. Restaurer le thème choisi précédemment === */
   const savedTheme = localStorage.getItem("acweb-theme");
-  if (savedTheme) {
-    document.documentElement.classList.add(savedTheme);
-  } else {
-    document.documentElement.classList.add("spring"); // thème par défaut
-  }
 
-  /* === 3. Changement de saison via les boutons === */
+if (savedTheme) {
+  root.classList.add(savedTheme);
+} else {
+  // détecter la saison selon la date actuelle
+  const month = new Date().getMonth(); // 0 = janvier, 11 = décembre
+  let season = "spring"; // par défaut
+  
+
+  if (month >= 2 && month <= 4) season = "spring"; // mars à mai
+  else if (month >= 5 && month <= 7) season = "summer"; // juin à août
+  else if (month >= 8 && month <= 10) season = "autumn"; // septembre à novembre
+  else season = "winter"; // décembre à février
+
+  root.classList.add(season);
+
+  
+}
+
+
+  /* === 3. Fonction pour générer les flocons selon la saison === */
+  function generateFlakes() {
+  if (!snowContainer) return;
+  snowContainer.innerHTML = ""; // vide les anciens
+
+  const flakeCount = 40;
+  let emoji = "❄️";
+
+  if (root.classList.contains("spring")) emoji = "🌸";
+  else if (root.classList.contains("summer")) emoji = "☀️";
+  else if (root.classList.contains("autumn")) emoji = "🍂";
+  else if (root.classList.contains("winter")) emoji = "❄️";
+
+  for (let i = 0; i < flakeCount; i++) {
+    const flake = document.createElement("div");
+    flake.classList.add("snowflake");
+    flake.textContent = emoji;
+
+    flake.style.setProperty("--left", `${Math.random() * 100}%`);
+    flake.style.setProperty("--duration", `${8 + Math.random() * 10}s`);
+    flake.style.setProperty("--opacity", `${0.1 + Math.random() * 0.4}`);
+    flake.style.setProperty("--fontSize", `${10 + Math.random() * 20}px`);
+
+    // 💡 délai aléatoire pour un démarrage fluide
+    flake.style.animationDelay = `${Math.random() * 10}s`;
+
+    snowContainer.appendChild(flake);
+  }
+}
+
+  /* === 4. Changement de saison via les boutons === */
   seasonBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Supprimer tous les thèmes saisonniers
-      document.documentElement.classList.remove("spring", "summer", "autumn", "winter");
-
-      // Ajouter le thème choisi
+      root.classList.remove("spring", "summer", "autumn", "winter");
       const theme = btn.dataset.theme;
-      document.documentElement.classList.add(theme);
-
-      // Sauvegarder en localStorage
+      root.classList.add(theme);
       localStorage.setItem("acweb-theme", theme);
+      generateFlakes(); // 🔥 met à jour les emojis
     });
   });
-});
 
-/* === 4. Effet Parallax sur l’image de fond du Hero === */
-window.addEventListener("scroll", () => {
-  const hero = document.querySelector(".hero");
-  if (!hero) return;
+  /* === 5. Génération initiale des flocons === */
+  generateFlakes();
 
-  let offset = window.scrollY * 0.07; // contrôle la vitesse du décalage
-  hero.style.backgroundPositionY = `${offset}px`;
+  /* === 6. Effet Parallax sur l’image de fond du Hero === */
+  window.addEventListener("scroll", () => {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+    let offset = window.scrollY * 0.07;
+    hero.style.backgroundPositionY = `${offset}px`;
+  });
 });

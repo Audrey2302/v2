@@ -39,6 +39,57 @@
 }
 
 /* =========================
+   Éléments qui tombent selon la saison
+========================= */
+
+.snowflakes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -3rem; /* Départ au-dessus de la vue */
+  left: var(--left);
+  font-size: var(--fontSize);
+  opacity: var(--opacity);
+  animation: fall var(--duration) linear infinite;
+  user-select: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: var(--opacity);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+/* Section contact avec position relative pour le positionnement */
+.about-contact {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Positionner la section contact en relative pour que les emojis soit bien placé */
+#contact {
+  position: relative;
+  
+  overflow: hidden;
+}
+
+/* =========================
    Reset & Base
 ========================= */
 * {
@@ -583,6 +634,7 @@ nav a {
    Footer
 ========================= */
 footer {
+  background-color: var(--accent);
   padding: 18px 0 36px;
   color: var(--text);
   font-size: 0.9rem;
@@ -605,3 +657,4 @@ footer {
     display: inline-flex;
   }
 }
+
