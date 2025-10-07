@@ -634,13 +634,12 @@ nav a {
    Footer
 ========================= */
 footer {
-  background-color: var(--accent);
+  background: linear-gradient(to top, var(--accent), var(--bg));
   padding: 18px 0 36px;
   color: var(--text);
   font-size: 0.9rem;
   text-align: center;
 }
-
 /* =========================
    Responsive
 ========================= */
@@ -655,6 +654,22 @@ footer {
 
   .menu-toggle {
     display: inline-flex;
+  }
+  .contact {
+    max-width: 95%;          /* prend presque toute la largeur */
+    padding: 40px 20px;      /* plus d’espace intérieur */
+    font-size: 1rem;         /* texte légèrement plus grand */
+  }
+
+  .contact input,
+  .contact textarea {
+    font-size: 1rem;
+    padding: 14px;           /* champs plus faciles à cliquer */
+  }
+
+  .contact button {
+    font-size: 1rem;
+    padding: 14px 16px;
   }
 }
 
