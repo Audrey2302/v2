@@ -39,4 +39,3 @@ window.addEventListener("scroll", () => {
   let offset = window.scrollY * 0.07; // contrôle la vitesse du décalage
   hero.style.backgroundPositionY = `${offset}px`;
 });
-

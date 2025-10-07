@@ -56,10 +56,13 @@ body {
 
 .container {
   width: 100%;
-  margin: 0;
-  padding: 0px;
+
 }
 
+/* Pour une cohérence visuelle sur toutes les sections */
+section {
+  padding: 50px 20px;
+}
 /* =========================
    Header
 ========================= */
@@ -213,9 +216,7 @@ nav a {
 /* =========================
    Services Section
 ========================= */
-.services-section {
-  margin: 60px 0;
-}
+
 
 .services-section .section-head {
   text-align: center;
@@ -276,7 +277,6 @@ nav a {
 ========================= */
 
 .about-process {
-  padding: 80px 20px;
   background: var(--bg-light, #f9f9f9);
 }
 
@@ -330,6 +330,7 @@ nav a {
 }
 
 .about-me p {
+  text-align: justify;
   margin-bottom: 15px;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -451,7 +452,6 @@ nav a {
    Section Écoresponsable
 ========================= */
 .eco-section {
-  padding: 60px 20px;
   background: var(--bg);
   text-align: center;
 }
@@ -542,18 +542,18 @@ nav a {
    About & Contact
 ========================= */
 .about-contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 28px;
+  display: flex;
+  justify-content: center;
+
 }
 
-.about,
 .contact {
   background: #fff;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 70%;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .contact form {
