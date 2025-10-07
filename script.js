@@ -10,23 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
   /* === 2. Restaurer le thème choisi précédemment === */
   const savedTheme = localStorage.getItem("acweb-theme");
 
-if (savedTheme) {
-  root.classList.add(savedTheme);
-} else {
-  // détecter la saison selon la date actuelle
-  const month = new Date().getMonth(); // 0 = janvier, 11 = décembre
-  let season = "spring"; // par défaut
-  
+// détecter la saison selon la date actuelle
+const month = new Date().getMonth();
+let season = "spring";
 
-  if (month >= 2 && month <= 4) season = "spring"; // mars à mai
-  else if (month >= 5 && month <= 7) season = "summer"; // juin à août
-  else if (month >= 8 && month <= 10) season = "autumn"; // septembre à novembre
-  else season = "winter"; // décembre à février
+if (month >= 2 && month <= 4) season = "spring"; // mars à mai
+else if (month >= 5 && month <= 7) season = "summer"; // juin à août
+else if (month >= 8 && month <= 10) season = "autumn"; // sept à nov
+else season = "winter"; // déc à fév
 
-  root.classList.add(season);
-
-  
-}
+// on met à jour le thème à chaque chargement
+root.classList.remove("spring", "summer", "autumn", "winter");
+root.classList.add(season);
+localStorage.setItem("acweb-theme", season);
 
 
   /* === 3. Fonction pour générer les flocons selon la saison === */
