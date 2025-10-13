@@ -179,7 +179,17 @@ nav a {
   border-radius: 8px;
 }
 /*le logo avec l'icone qui change selon la saison*/ 
+/* Tous les emojis sont cachés par défaut */
+.logomark .emoji {
+  display: none;
+  font-size: 1.4rem;
+}
 
+/* On affiche seulement celui qui correspond à la saison active */
+html.spring .emoji-spring { display: inline; }
+html.summer .emoji-summer { display: inline; }
+html.autumn .emoji-autumn { display: inline; }
+html.winter .emoji-winter { display: inline; }
 /* =========================
    Hero
 ========================= */
