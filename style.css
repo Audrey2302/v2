@@ -2,7 +2,7 @@
    Thèmes saisonniers
 ========================= */
 
-/* Par défaut (printemps) */
+/* printemps */
 :root {
   --bg: #f8f5f0;
   --muted: #e4f3e0;
@@ -115,6 +115,25 @@ section {
   padding: 50px 20px;
 }
 /* =========================
+   Les titres des sections
+========================= */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.section-header .section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted, #666);
+}
+/* =========================
    Header
 ========================= */
 header {
@@ -194,83 +213,89 @@ html.winter .emoji-winter { display: inline; }
    Hero
 ========================= */
 
+
 .hero {
-  position: relative; /* nécessaire pour l’overlay et les éléments internes */
+  position: relative;
   display: flex;
-  flex-direction: column; /* aligne titre, texte, bouton verticalement */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 250px 20px; /* espace interne généreux */
-  margin: 0px 0px 5px 0px;
+  padding: 220px 20px;
+  margin: 0 0 5px 0;
   border-radius: 16px;
-
-  /* image de fond */
-  background: var(--hero-img) center/cover no-repeat;
-  
   color: white;
   text-align: center;
-  overflow: hidden; /* évite que l’overlay déborde */
+  overflow: hidden;
+
+  /* On sépare les propriétés pour éviter que le JS les écrase */
+  background-image: var(--hero-img);
+  background-size: cover;
+  background-position: center 0px;
+  background-repeat: no-repeat;
+
 }
 
-/* overlay sombre au-dessus de l’image pour améliorer la lisibilité du texte */
+/* Overlay sombre pour le contraste */
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0; /* couvre tout le hero */
-  background: rgba(0, 0, 0, 0.35); /* assombrit un peu l’image */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
   border-radius: 16px;
+  z-index: 0;
 }
 
-/* animations appliquées aux éléments du hero */
+/* Contenu au-dessus de l'image */
+.hero-left {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animations douces */
 .hero h1,
 .hero p,
 .hero .cta {
-  position: relative; /* pour passer au-dessus de l’overlay */
-  opacity: 0; /* invisible au départ */
-  transform: translateY(20px); /* décalé vers le bas */
-  animation: fadeUp 0.8s ease forwards; /* animation fade + montée */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
 }
 
-/* titre principal */
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   font-weight: 700;
   margin-bottom: 12px;
-  animation-delay: 0.2s; /* apparaît en premier */
+  animation-delay: 0.2s;
 }
 
-/* sous-titre */
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  animation-delay: 0.4s; /* apparaît après le titre */
+  animation-delay: 0.4s;
 }
 
-/* bouton CTA */
 .hero .cta {
   display: inline-block;
   padding: 14px 28px;
-  border-radius: 30px; /* bouton arrondi */
-  background: var(--accent); 
+  border-radius: 30px;
+  background: var(--accent);
   color: white;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.05rem;
-  animation-delay: 0.6s; /* apparaît en dernier */
-  transition: transform 0.2s ease, background 0.2s ease; /* effet hover fluide */
+  animation-delay: 0.6s;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* effet hover sur le bouton */
 .hero .cta:hover {
-  transform: scale(1.05); /* léger zoom */
-  background: color-mix(in srgb, var(--accent) 80%, black); /* accent plus foncé */
+  transform: scale(1.05);
+  background: color-mix(in srgb, var(--accent) 80%, black);
 }
 
-/* animation fadeUp utilisée pour titre/texte/bouton */
+/* Animation fadeUp */
 @keyframes fadeUp {
   to {
-    opacity: 1; /* devient visible */
-    transform: translateY(0); /* revient à sa place normale */
+    opacity: 1;
+    transform: translateY(0);
   }
 }
  
@@ -280,57 +305,108 @@ html.winter .emoji-winter { display: inline; }
 ========================= */
 
 
-.services-section .section-head {
-  text-align: center;
-  margin-bottom: 40px;
-}
 
-.services-section .section-head h2 {
-  font-size: 2rem;
-  margin: 0;
-  color: var(--text);
-}
-
-.services-section .section-head small {
-  color: var(--kaki);
-  font-size: 0.95rem;
-}
-
-.services-grid {
-  padding: 10px;
+.offers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.service-card {
-  background: var(--muted);
+.offer-card {
+  background: var(--card-bg, #fff);
   border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
 
-.service-card .icon {
+.offer-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.offer-header .icon {
   font-size: 2rem;
-  margin-bottom: 14px;
+  margin-bottom: 0.5rem;
 }
 
-.service-card h3 {
-  font-size: 1.25rem;
-  margin: 0 0 10px;
+.offer-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
   color: var(--text);
 }
 
-.service-card p {
-  font-size: 0.95rem;
-  color: var(--kaki);
+.offer-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.offer-price {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  color: var(--accent, #b57b38);
+  font-weight: 600;
+}
+
+.offer-price strong {
+  font-size: 1.6rem;
+  color: var(--text);
+}
+
+.offer-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.offer-details li {
+  font-size: 0.9rem;
+  color: #444;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Accent sur hover */
+.offer-card:hover .offer-price strong {
+  color: var(--accent);
+}
+
+.price-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 2rem;
   line-height: 1.5;
+}
+
+.price-note a {
+  color: var(--accent, #b57b38);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.price-note a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsive ajustements */
+@media (max-width: 700px) {
+  .offers {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -342,18 +418,18 @@ html.winter .emoji-winter { display: inline; }
   background: var(--bg-light, #f9f9f9);
 }
 
-.about-process .section-header {
+.about-process {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.about-process .section-header h2 {
+.about-process  h2 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.about-process .section-header p {
+.about-process  p {
   font-size: 1rem;
   color: var(--text-muted, #666);
 }
@@ -528,18 +604,9 @@ html.winter .emoji-winter { display: inline; }
   margin: 0 auto;
 }
 
-.eco-section .section-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-  color: var(--text);
-}
 
-.eco-section .section-subtitle {
-  font-size: 1.1rem;
-  color: var(--kaki);
-  margin-bottom: 40px;
-}
+
+
 
 /* Grille 3 colonnes */
 .eco-grid {
@@ -584,10 +651,7 @@ html.winter .emoji-winter { display: inline; }
 /* =========================
    Portfolio grid (cards)
 ========================= */
-/* =========================
-   PORTFOLIO SECTION
-========================= */
-/* === SECTION PORTFOLIO === */
+
 .section-portfolio {
   text-align: center;
   padding: 80px 20px;
@@ -679,8 +743,6 @@ html.winter .emoji-winter { display: inline; }
     align-items: center;
   }
 }
-
-
 
 
 /* =========================

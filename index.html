@@ -7,7 +7,7 @@
   <title>AC WEB — Sites écoresponsables</title>
   <meta name="description" content="AC WEB - Audrey Curbera | Sites vitrines écoresponsables, SEO, refonte & maintenance." />
   <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/97f46e4112.js" crossorigin="anonymous"></script> <!--Pour inserer les logos-->
+
 </head>
 <body>
   
@@ -21,6 +21,7 @@
             <span class="emoji emoji-summer">☀️</span>
             <span class="emoji emoji-autumn">🍂</span>
             <span class="emoji emoji-winter">❄️</span>
+            
           </div>
         
         <div>
@@ -44,6 +45,7 @@
         <button class="season-btn" data-theme="summer" aria-label="Été">☀️</button>
         <button class="season-btn" data-theme="autumn" aria-label="Automne">🍂</button>
         <button class="season-btn" data-theme="winter" aria-label="Hiver">❄️</button>
+        
       </div>
 
       <!-- Mobile toggle -->
@@ -67,60 +69,95 @@
     </section>
 
     <!-- Services -->
-    <section class="services-section container">
-  <div class="section-head">
-    <h2>Mes services</h2>
-    <small>Des solutions adaptées à vos besoins</small>
-  </div>
+    <section class="services-section container" id="services">
+      <div class="section-header">
+        <h2 class="section-title">Mes services</h2>
+        <p class="section-subtitle">Des solutions adaptées à vos besoins</p>
+      </div>
 
-  <div class="services-grid">
-    <!-- Service 1 -->
-    <div class="service-card">
-      <div class="icon">🌱</div>
-      <h3>Sites vitrines</h3>
-      <p>
-        Des sites modernes, élégants et accessibles, conçus pour mettre en valeur votre activité 
-        tout en restant rapides et respectueux de l’environnement numérique.
-      </p>
-    </div>
+      <div class="services-grid offers">
 
-    <!-- Service 2 -->
-    <div class="service-card">
-      <div class="icon">🔎</div>
-      <h3>Optimisation SEO</h3>
-      <p>
-        Améliorez votre visibilité sur Google grâce à une structure optimisée, 
-        un contenu pertinent et des performances renforcées.
-      </p>
-    </div>
+        <!-- Service 1 -->
+        <div class="offer-card">
+          <div class="offer-header">
+            <div class="icon">🌱</div>
+            <h3>Site vitrine</h3>
+            <p class="offer-desc">Parfait pour présenter votre activité avec un design moderne et écoresponsable.</p>
+          </div>
+          <div class="offer-price">À partir de <strong>600€*</strong></div>
+          <ul class="offer-details">
+            <li>Hébergement & nom de domaine</li>
+            <li>Charte graphique personnalisée</li>
+            <li>Design responsive & accessible</li>
+            <li>Optimisation SEO & performance</li>
+            <li>Formulaire de contact</li>
+          </ul>
+        </div>
 
-    <!-- Service 3 -->
-    <div class="service-card">
-      <div class="icon">♻️</div>
-      <h3>Refonte & Modernisation</h3>
-      <p>
-        Donnez une nouvelle vie à votre site avec un design repensé, 
-        une navigation fluide et une image moderne adaptée à vos valeurs.
-      </p>
-    </div>
+        <!-- Service 2 -->
+        <div class="offer-card">
+          <div class="offer-header">
+            <div class="icon">🔎</div>
+            <h3>Optimisation SEO</h3>
+            <p class="offer-desc">Améliorez la visibilité de votre site et boostez vos performances de chargement.</p>
+          </div>
+          <div class="offer-price">À partir de <strong>250€*</strong></div>
+          <ul class="offer-details">
+            <li>Audit SEO complet</li>
+            <li>Optimisation du code et des balises</li>
+            <li>Amélioration des performances</li>
+            <li>Conseils mots-clés & contenu</li>
+          </ul>
+        </div>
 
-    <!-- Service 4 -->
-    <div class="service-card">
-      <div class="icon">🔧</div>
-      <h3>Maintenance & suivi</h3>
-      <p>
-        Gardez votre site performant et sécurisé grâce à des mises à jour régulières, 
-        des sauvegardes et un suivi continu.
+        <!-- Service 3 -->
+        <div class="offer-card">
+          <div class="offer-header">
+            <div class="icon">♻️</div>
+            <h3>Refonte & Modernisation</h3>
+            <p class="offer-desc">Redonnez vie à votre site avec un design épuré et des performances optimisées.</p>
+          </div>
+          <div class="offer-price">À partir de <strong>500€*</strong></div>
+          <ul class="offer-details">
+            <li>Analyse de l’existant</li>
+            <li>Refonte graphique & UX</li>
+            <li>Optimisation technique</li>
+            <li>Amélioration de la vitesse</li>
+            <li>Responsive & accessible</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="offer-card">
+          <div class="offer-header">
+            <div class="icon">🔧</div>
+            <h3>Maintenance & Suivi</h3>
+            <p class="offer-desc">Gardez votre site performant, sécurisé et à jour toute l’année.</p>
+          </div>
+          <div class="offer-price"><strong>75€/mois*</strong></div>
+          <ul class="offer-details">
+            <li>Mises à jour & sauvegardes</li>
+            <li>Optimisation continue</li>
+            <li>Corrections et ajustements</li>
+            <li>Assistance technique</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="price-note">
+        *Les tarifs indiqués sont à titre indicatif et peuvent varier selon la complexité du projet.  
+        Pour un devis personnalisé, n’hésitez pas à <a href="#contact">me contacter</a>.
       </p>
-    </div>
-  </div>
-</section>
+    </section>
+
+
 
 <!-- Section A propos + Processus -->
 <section class="about-process">
   <div class="section-header">
-    <h2>À propos & Processus</h2>
-    <p>Découvrez qui je suis et comment je travaille avec mes clients.</p>
+    <h2 class="section-title">À propos & Processus</h2>
+    <p class="section-subtitle">Découvrez qui je suis et comment je travaille avec mes clients.</p>
   </div>
 
   <div class="about-grid">
@@ -189,11 +226,13 @@
     <!-- Section Écoresponsable -->
 <section class="eco-section" id="eco">
   <div class="eco-container">
-    <h2 class="section-title">Une démarche écoresponsable</h2>
-    <p class="section-subtitle">
-      Le numérique a un impact environnemental réel. Mon objectif est de créer des sites modernes,
-      performants et respectueux de l'environnement.
-    </p>
+    <div class="section-header">
+      <h2 class="section-title">Une démarche écoresponsable</h2>
+      <p class="section-subtitle">Le numérique a un impact environnemental réel. Mon objectif est de créer des sites modernes,
+          performants et respectueux de l'environnement.</p>
+    </div>
+      
+    
 
     <div class="eco-grid">
       <!-- Carte 1 -->
@@ -233,8 +272,11 @@
     <!-- Portfolio -->
 <!-- Portfolio -->
 <section id="portfolio" class="section-portfolio">
-  <h2 class="section-title">Mes projets</h2>
-  <p class="section-subtitle">Extraits de ma formation — code, performance et front-end</p>
+  <div class="section-header">
+      <h2 class="section-title">Mes projets</h2>
+      <p class="section-subtitle">Extraits de ma formation — code, performance et front-end</p>
+    </div>
+
 
   <div class="portfolio-container">
 

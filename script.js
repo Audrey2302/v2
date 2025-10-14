@@ -71,9 +71,16 @@ localStorage.setItem("acweb-theme", season);
 
   /* === 6. Effet Parallax sur l’image de fond du Hero === */
   window.addEventListener("scroll", () => {
-    const hero = document.querySelector(".hero");
-    if (!hero) return;
-    let offset = window.scrollY * 0.07;
-    hero.style.backgroundPositionY = `${offset}px`;
-  });
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+
+  const scrollY = window.scrollY;
+  const limit = hero.offsetHeight; // hauteur du hero
+  if (scrollY < limit) {
+    // effet parallax doux et progressif
+    hero.style.backgroundPosition = `center ${scrollY * 0.3}px`;
+  }
+});
+
+
 });
