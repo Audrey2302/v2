@@ -8,7 +8,7 @@
   --muted: #e4f3e0;
   --accent: #ffb7c5;
   --text: #2a2a2a;
-  --hero-img: url("images/hero-tulipe.jpg");
+  --hero-img: url("images/hero-tulipe.webp");
 }
 
 /* Été */
@@ -17,7 +17,7 @@
   --muted: #eaf6ff;
   --accent: #ffda77;
   --text: #222;
-  --hero-img: url("images/hero-summer-v10.jpg");
+  --hero-img: url("images/hero-summer-v10.webp");
 }
 
 /* Automne */
@@ -26,7 +26,7 @@
   --muted: #fae2c8;
   --accent: #d97b46;
   --text: #2c1c15;
-  --hero-img: url("images/hero-autumn-v3.jpg");
+  --hero-img: url("images/hero-autumn-v3.webp");
 }
 
 /* Hiver */
@@ -35,7 +35,7 @@
   --muted: #dfe6ec;
   --accent: #88aacc;
   --text: #1e2a33;
-  --hero-img: url("images/hero-winter-v6.jpg");
+  --hero-img: url("images/hero-winter-v6.webp");
 }
 
 /* =========================
