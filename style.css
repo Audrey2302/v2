@@ -804,12 +804,27 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  nav {
+   nav {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    padding: 15px;
+    gap: 10px;
   }
-
+    nav.open {
+    display: flex;
+  }
   .menu-toggle {
-    display: inline-flex;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
   }
   .contact {
     max-width: 95%;          /* prend presque toute la largeur */
