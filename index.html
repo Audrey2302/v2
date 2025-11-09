@@ -126,7 +126,23 @@
               <li>Responsive & accessible</li>
             </ul>
           </div>
-
+    <!-- Service 5 -->
+          <div class="offer-card">
+            <div class="offer-header">
+            <div class="icon">💍</div>
+            <h3>Site de mariage</h3>
+             <p class="offer-desc">Offrez un site unique à votre image pour partager votre grand jour 💕  
+              Accessible via un QR code sur vos faire-part, il réunit toutes les infos essentielles pour vos invités.
+            </p></div>
+            <div class="offer-price">À partir de <strong>300€*</strong></div>
+            <ul class="offer-details">
+              <li>Page personnalisée avec vos couleurs & prénoms</li>
+              <li>Informations pratiques (lieu, date, hébergement…)</li>
+              <li>Formulaire RSVP en ligne</li>
+              <li>Galerie photo ou playlist</li>
+              <li>QR code pour accès facile</li>
+            </ul>
+          </div>
           <!-- Service 4 -->
           <div class="offer-card">
             <div class="offer-header">
@@ -142,6 +158,8 @@
               <li>Assistance technique</li>
             </ul>
           </div>
+
+          
 
         </div>
 
@@ -335,16 +353,18 @@
     <!-- Flocons placés au bon niveau -->
     <div class="snowflakes" aria-hidden="true"></div>
 
-    <div class="contact" id="contact">  
-      <h3>Contact</h3>
-      <form aria-label="Formulaire de contact (exemple)" onsubmit="event.preventDefault(); alert('Formulaire d’exemple — connecte un backend pour le rendre fonctionnel')">
-        <input type="text" name="name" placeholder="Ton nom" required>
-        <input type="email" name="email" placeholder="Ton email" required>
-        <textarea name="message" rows="4" placeholder="Ton message" required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-      <p>Ou écris-moi à <a href="mailto:curbera.audrey@gmail.com">curbera.audrey@gmail.com</a></p>
-    </div>
+   <div class="contact" id="contact">  
+    <h3>Contact</h3>
+
+    <form action="contact.php" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Ton nom" required>
+      <input type="email" name="email" placeholder="Ton email" required>
+      <textarea name="message" rows="4" placeholder="Ton message" required></textarea>
+      <button type="submit">Envoyer ✉️</button>
+    </form>
+
+    <p>Ou écris-moi à <a href="mailto:curbera.audrey@gmail.com">curbera.audrey@gmail.com</a></p>
+  </div>
   </section>
 
 </main>
