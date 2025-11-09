@@ -1,3 +1,15 @@
+//menu de nav sur mobile 
+function toggleMenu(button) {
+  const nav = document.querySelector("nav");
+  const isOpen = button.getAttribute("aria-expanded") === "true";
+
+  // On bascule l’état
+  button.setAttribute("aria-expanded", !isOpen);
+  nav.style.display = isOpen ? "none" : "flex";
+  nav.classList.toggle("open", !isOpen);
+}
+//
+
 document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("year");
   const seasonBtns = document.querySelectorAll(".season-btn");
